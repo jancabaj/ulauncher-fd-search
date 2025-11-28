@@ -54,12 +54,14 @@ class KeywordQueryEventListener(EventListener):
         for result_path in results:
             path_obj = Path(result_path)
 
-            # Determine if it's a file or directory
+            # Determine if it's a file or directory and set appropriate icon
             if path_obj.is_dir():
-                icon = 'folder'
+                # Use folder icon from theme
+                icon = self.get_icon_path('folder', 'inode-directory')
                 item_type = 'Folder'
             else:
-                icon = 'text-x-generic'
+                # Use file icon from theme
+                icon = self.get_icon_path('text-x-generic', 'text-plain')
                 item_type = 'File'
 
             # Get parent directory for description
@@ -75,6 +77,38 @@ class KeywordQueryEventListener(EventListener):
             )
 
         return RenderResultListAction(items)
+
+    def get_icon_path(self, *icon_names):
+        """Try to find icon from system theme, return first found"""
+        # Common icon paths to check
+        icon_paths = {
+            'folder': [
+                '/usr/share/icons/Adwaita/scalable/places/folder.svg',
+                '/usr/share/icons/Adwaita/scalable/mimetypes/inode-directory.svg',
+                '/usr/share/icons/hicolor/48x48/places/folder.png',
+            ],
+            'inode-directory': [
+                '/usr/share/icons/Adwaita/scalable/mimetypes/inode-directory.svg',
+                '/usr/share/icons/Adwaita/scalable/places/folder.svg',
+            ],
+            'text-x-generic': [
+                '/usr/share/icons/Adwaita/scalable/mimetypes/text-x-generic.svg',
+                '/usr/share/icons/hicolor/48x48/mimetypes/text-x-generic.png',
+            ],
+            'text-plain': [
+                '/usr/share/icons/Adwaita/scalable/mimetypes/text-plain.svg',
+                '/usr/share/icons/Adwaita/scalable/mimetypes/text-x-generic.svg',
+            ]
+        }
+
+        for icon_name in icon_names:
+            if icon_name in icon_paths:
+                for path in icon_paths[icon_name]:
+                    if os.path.exists(path):
+                        return path
+
+        # Fallback to extension icon
+        return 'images/icon.svg'
 
     def search_with_fd(self, query, search_path, max_results):
         """Search for files and folders using fd command"""
