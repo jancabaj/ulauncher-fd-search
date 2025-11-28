@@ -1,0 +1,30 @@
+{
+  "required_api_version": "2",
+  "name": "Fast File Search",
+  "description": "Search files and folders quickly using fd",
+  "developer_name": "cabaj",
+  "icon": "images/icon.png",
+  "preferences": [
+    {
+      "id": "fd_keyword",
+      "type": "keyword",
+      "name": "Fast File Search",
+      "description": "Search for files and folders",
+      "default_value": "fd"
+    },
+    {
+      "id": "search_path",
+      "type": "input",
+      "name": "Search Path",
+      "description": "Base directory to search in",
+      "default_value": "~"
+    },
+    {
+      "id": "max_results",
+      "type": "input",
+      "name": "Max Results",
+      "description": "Maximum number of results to show",
+      "default_value": "10"
+    }
+  ]
+}
