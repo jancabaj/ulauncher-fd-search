@@ -1,6 +1,6 @@
 {
   "required_api_version": "2",
-  "name": "Fast File Search",
+  "name": "File Search",
   "description": "Search files and folders quickly using fd",
   "developer_name": "cabaj",
   "icon": "images/icon.svg",
@@ -8,9 +8,9 @@
     {
       "id": "fd_keyword",
       "type": "keyword",
-      "name": "Fast File Search",
+      "name": "File Search",
       "description": "Search for files and folders",
-      "default_value": "fd"
+      "default_value": "f"
     },
     {
       "id": "search_path",

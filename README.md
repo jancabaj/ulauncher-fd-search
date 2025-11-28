@@ -1,6 +1,6 @@
-# Fast File Search for Ulauncher
+# File Search for Ulauncher
 
-A blazing fast file and folder search extension for Ulauncher using `fd`.
+A fast file and folder search extension for Ulauncher using `fd`.
 
 ## Features
 
@@ -28,13 +28,13 @@ A blazing fast file and folder search extension for Ulauncher using `fd`.
 ## Usage
 
 1. Open Ulauncher (default: `Ctrl+Space`)
-2. Type `fd` (or your configured keyword) followed by search term
-3. Example: `fd myproject` - searches for files/folders containing "myproject"
+2. Type `f` (or your configured keyword) followed by search term
+3. Example: `f myproject` - searches for files/folders containing "myproject"
 4. Select result to open file or folder
 
 ## Configuration
 
-- **Keyword**: Change the trigger keyword (default: `fd`)
+- **Keyword**: Change the trigger keyword (default: `f`)
 - **Search Path**: Change base directory to search (default: `~`)
 - **Max Results**: Maximum number of results to display (default: 10)
 
