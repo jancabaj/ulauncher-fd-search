@@ -3,7 +3,7 @@
   "name": "Fast File Search",
   "description": "Search files and folders quickly using fd",
   "developer_name": "cabaj",
-  "icon": "images/icon.png",
+  "icon": "images/icon.svg",
   "preferences": [
     {
       "id": "fd_keyword",

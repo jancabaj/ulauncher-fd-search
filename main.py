@@ -25,7 +25,7 @@ class KeywordQueryEventListener(EventListener):
         if not query or len(query) < 2:
             return RenderResultListAction([
                 ExtensionResultItem(
-                    icon='images/icon.png',
+                    icon='system-search',
                     name='Fast File Search',
                     description='Type at least 2 characters to search files and folders',
                     on_enter=HideWindowAction()
@@ -43,7 +43,7 @@ class KeywordQueryEventListener(EventListener):
         if not results:
             return RenderResultListAction([
                 ExtensionResultItem(
-                    icon='images/icon.png',
+                    icon='system-search',
                     name='No results found',
                     description=f'No files or folders matching "{query}"',
                     on_enter=HideWindowAction()
@@ -56,10 +56,10 @@ class KeywordQueryEventListener(EventListener):
 
             # Determine if it's a file or directory
             if path_obj.is_dir():
-                icon = 'images/folder.png'
+                icon = 'folder'
                 item_type = 'Folder'
             else:
-                icon = 'images/file.png'
+                icon = 'text-x-generic'
                 item_type = 'File'
 
             # Get parent directory for description
